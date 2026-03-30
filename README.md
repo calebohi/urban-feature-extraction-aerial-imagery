@@ -139,6 +139,12 @@ Digitization required careful visual interpretation of the imagery, particularly
 
 Each feature layer was styled independently to enhance map readability. This separation allowed for clear visualization and effective communication of extracted urban features.
 
+### 🎨 Visualization & Cartography
+
+Following digitization, each feature layer was styled using the QGIS Layer Styling panel to enhance visual distinction between roads, vegetation, and water bodies.
+
+The final map layout was created using the QGIS Print Layout tool, where essential map elements such as title, legend, and annotations were added to produce a clear and well-structured cartographic output.
+
 ## ⚠️ Limitations
 
 While the georeferencing and digitization process produced a usable representation of urban features, several limitations should be acknowledged.
@@ -162,12 +168,6 @@ Digitization was based on manual visual interpretation of the imagery. In areas 
 ### 5. Limited Feature Scope
 
 Only selected urban features (roads, vegetation, and water bodies) were extracted. Other relevant features such as buildings and infrastructure details were not included, which limits the completeness of the spatial representation.
-
-### 🎨 Visualization & Cartography
-
-Following digitization, each feature layer was styled using the QGIS Layer Styling panel to enhance visual distinction between roads, vegetation, and water bodies.
-
-The final map layout was created using the QGIS Print Layout tool, where essential map elements such as title, legend, and annotations were added to produce a clear and well-structured cartographic output.
 
 ## 📊 Results
 
