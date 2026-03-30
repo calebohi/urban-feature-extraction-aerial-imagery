@@ -46,7 +46,7 @@ To improve workflow efficiency, the Georeferencer window was configured to opera
 
 This setup enabled easier identification and selection of corresponding points between the input image and the reference basemap, thereby improving accuracy during Ground Control Point (GCP) placement.
 
-<img src="images/docked_georefencer_window.jpg" width="85%">
+<img src="images/docked_georeferencer_window.jpg" width="85%">
 
 #### 2. Image Loading & Workspace Configuration
 
@@ -92,7 +92,7 @@ Following the configuration of transformation parameters and selection of Ground
 
 Following georeferencing, key urban features were extracted through manual digitization within QGIS. This process involved creating vector layers and interpreting features directly from the georeferenced aerial image.
 
-#### 1 Vector Layer Creation
+#### 1. Vector Layer Creation
 
 Separate vector layers were created for each feature class (roads, vegetation, and water bodies) using the GeoPackage format. Layers were created via Layer → Create Layer → New GeoPackage Layer.
 
@@ -106,7 +106,9 @@ The GeoPackage format was selected as it allows multiple feature layers to be st
 
 This ensured that each feature type was structured correctly for spatial representation.
 
-#### 2 Digitization Workflow
+<img src="images/digitization_layer_creation.jpg" width="85%">
+
+#### 2. Digitization Workflow
 
 Digitization was performed by enabling editing mode on each layer and manually tracing features from the georeferenced image.
 
@@ -125,7 +127,7 @@ To improve accuracy and editing efficiency, additional QGIS tools were utilized:
 
 Digitization required careful visual interpretation of the imagery, particularly in areas affected by distortion or reduced clarity. As such, some features—especially vegetation in the upper portion of the image—were delineated based on best visual approximation.
 
-#### 3 Feature-Specific Considerations
+#### 3. Feature-Specific Considerations
 
 - Roads: Digitized as line features, with dual lines used in areas where physical lane separation (e.g., central dividers) was visible. Road continuity was maintained across intersections and bridge structures.
 
@@ -133,7 +135,7 @@ Digitization required careful visual interpretation of the imagery, particularly
 
 - Water Bodies: Digitized as polygons, with feature continuity maintained beneath overlapping infrastructure such as bridges.
 
-#### 4 Data Organization and Styling
+#### 4. Data Organization and Styling
 
 Each feature layer was styled independently to enhance map readability. This separation allowed for clear visualization and effective communication of extracted urban features.
 
@@ -141,23 +143,23 @@ Each feature layer was styled independently to enhance map readability. This sep
 
 While the georeferencing and digitization process produced a usable representation of urban features, several limitations should be acknowledged.
 
-### 1 Oblique Image Distortion
+### 1. Oblique Image Distortion
 
 The source aerial image was captured at an oblique (angled) perspective rather than a true vertical (orthographic) view. As a result, perspective distortion was introduced during georeferencing, leading to localized stretching and compression of features—particularly towards the upper portion of the image.
 
-### 2 Residual Georeferencing Error
+### 2. Residual Georeferencing Error
 
 Although Ground Control Points (GCPs) were carefully selected and refined, the final Root Mean Square (RMS) error of approximately 2.48 indicates the presence of minor positional inaccuracies. This level of error is acceptable for visual interpretation but may not be suitable for high-precision spatial analysis.
 
-### 3 Interpolation Artifacts
+### 3. Interpolation Artifacts
 
 Despite the use of cubic B-spline resampling, some minor interpolation artifacts (e.g., pixel inconsistencies within vegetated areas) remained. These artifacts are a result of the transformation process and the original image quality.
 
-### 4 Visual Interpretation Uncertainty
+### 4. Visual Interpretation Uncertainty
 
 Digitization was based on manual visual interpretation of the imagery. In areas affected by distortion or reduced clarity, particularly towards the upper extent of the image, feature boundaries—especially vegetation—may not accurately represent true ground conditions.
 
-### 5 Limited Feature Scope
+### 5. Limited Feature Scope
 
 Only selected urban features (roads, vegetation, and water bodies) were extracted. Other relevant features such as buildings and infrastructure details were not included, which limits the completeness of the spatial representation.
 
@@ -183,7 +185,7 @@ The resulting raster was successfully integrated into the main QGIS canvas, wher
 
 ## 🗺️ Map Output
 
-![Final Map](images/final-map.png)
+<img src="images/final_output.png" width="85%">
 
 *Final map showing extracted urban features from the georeferenced aerial imagery.*
 
