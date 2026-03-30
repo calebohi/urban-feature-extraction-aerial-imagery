@@ -24,7 +24,7 @@ An oblique (angled) aerial image of the area was used as the primary dataset for
 
 ### Original Aerial Image
 
-![Original Aerial Image](your-image-link-here)
+<img src="images/aerial_view_falomo_bridge_area_lagos.jpg" width="85%">
 
 *Source: iStockphoto (© Kehinde Temitope Odutayo). Used for educational purposes.*
 
@@ -38,7 +38,7 @@ Due to its oblique perspective, the image required geometric correction through 
 
 ### 📐 Georeferencing
 
-#### 1 Georeferencer Setup
+#### 1. Georeferencer Setup
 
 The georeferencing process was carried out using the Georeferencer tool in QGIS. This tool was accessed from the top menu via Layer → Georeferencer, which opens a separate interface for performing image-to-map alignment.
 
@@ -46,7 +46,9 @@ To improve workflow efficiency, the Georeferencer window was configured to opera
 
 This setup enabled easier identification and selection of corresponding points between the input image and the reference basemap, thereby improving accuracy during Ground Control Point (GCP) placement.
 
-#### 2 Image Loading & Workspace Configuration
+<img src="images/docked_georefencer_window.jpg" width="85%">
+
+#### 2. Image Loading & Workspace Configuration
 
 The aerial image was loaded into the Georeferencer interface as a raster dataset using the Open Raster option. This allowed the image to be displayed within the Georeferencer window for further processing.
 
@@ -54,7 +56,7 @@ To enable accurate spatial alignment, a reference basemap (Google Maps) was adde
 
 With the Georeferencer window docked, both the input image and the reference basemap were viewed simultaneously within the same workspace. This configuration facilitated precise selection of corresponding locations during Ground Control Point (GCP) collection, improving the overall georeferencing accuracy.
 
-#### 3 Transformation Parameters
+#### 3. Transformation Parameters
 
 Prior to georeferencing, transformation parameters were configured within the Georeferencer to ensure accurate alignment and optimal output quality.
 
@@ -66,7 +68,9 @@ Multiple resampling methods were evaluated, including nearest neighbour, bilinea
 
 Additionally, the option to assign a NoData value of 0 was enabled to eliminate black background pixels generated during transformation. Ground Control Point (GCP) data was also saved for reference and reproducibility of the georeferencing process.
 
-#### 4 Ground Control Point (GCP) Selection
+<img src="images/transformation_parameters.jpg" width="85%">
+
+#### 4. Ground Control Point (GCP) Selection
 
 The study area (Falomo Bridge, Lagos) was identified and located on the reference basemap to guide accurate Ground Control Point (GCP) selection.
 
@@ -78,9 +82,11 @@ An iterative approach was adopted during GCP selection, where points were refine
 
 Despite optimization, minor residual distortions remained, particularly towards the upper portion of the image, due to perspective effects inherent in the original imagery.
 
-#### 5 Transformation & Output Generation
+#### 5. Transformation & Output Generation
 
 Following the configuration of transformation parameters and selection of Ground Control Points (GCPs), the georeferencing process was executed using the Start Georeferencing function within the Georeferencer tool.
+
+<img src="images/georeferenced_image_with_GCP.jpg" width="85%">
 
 ### ✏️ Digitization
 
