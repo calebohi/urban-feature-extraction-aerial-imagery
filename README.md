@@ -163,6 +163,12 @@ Digitization was based on manual visual interpretation of the imagery. In areas 
 
 Only selected urban features (roads, vegetation, and water bodies) were extracted. Other relevant features such as buildings and infrastructure details were not included, which limits the completeness of the spatial representation.
 
+### 🎨 Visualization & Cartography
+
+Following digitization, each feature layer was styled using the QGIS Layer Styling panel to enhance visual distinction between roads, vegetation, and water bodies.
+
+The final map layout was created using the QGIS Print Layout tool, where essential map elements such as title, legend, and annotations were added to produce a clear and well-structured cartographic output.
+
 ## 📊 Results
 
 The georeferencing and digitization process resulted in a spatially aligned aerial image with extracted urban features represented as vector layers.
