@@ -147,7 +147,7 @@ The final map layout was created using the QGIS Print Layout tool, where essenti
 
 After completing the initial georeferencing using a Polynomial 2 transformation, further review and experimentation were conducted to improve spatial alignment.
 
-Based on QGIS documentation on georeferencing transformation types, different methods were tested, including Projective and Thin Plate Spline (TPS). While Polynomial transformations introduced noticeable stretching and distortion—particularly towards the edges of the image, TPS provided improved local alignment across the study area.
+Based on QGIS documentation on georeferencing transformation types, different methods were tested, including Projective and Thin Plate Spline (TPS). While Polynomial transformations introduced noticeable stretching and distortion, particularly towards the edges of the image, TPS provided improved local alignment across the study area.
 
 Given the near-vertical (slightly oblique) nature of the source imagery, TPS was selected as the preferred method due to its ability to better handle localized distortions and improve visual consistency with the basemap.
 
@@ -155,10 +155,6 @@ It is important to note that while TPS improves alignment, it does so through lo
 
 ### 📍 Key Observation
 Improved alignment was especially noticeable around complex features such as the bridge, where additional Ground Control Points (GCPs) helped refine local accuracy.
-
-### 🗺️ Updated Output (TPS)
-
-<img src="images/tps_transform.png" width="85%">
 
 ### 🔍 Comparison Summary
 
@@ -190,37 +186,36 @@ Digitization was based on manual visual interpretation of the imagery. In areas 
 ### 6. Limited Feature Scope
 Only selected urban features (roads, vegetation, and water bodies) were extracted. Other relevant features such as buildings and infrastructure details were not included, limiting the completeness of the spatial representation.
 
+
 ## 📊 Results
 
 The georeferencing and digitization process resulted in a spatially aligned aerial image with extracted urban features represented as vector layers.
 
-The georeferenced raster was successfully aligned with the reference basemap using a second-order polynomial transformation, achieving a Root Mean Square (RMS) error of approximately 2.48. The use of cubic B-spline resampling improved the visual quality of the output by minimizing interpolation artifacts, particularly in vegetated areas.
+Using Thin Plate Spline (TPS) transformation, the georeferenced raster achieved improved local alignment with the reference basemap, particularly across complex areas such as road intersections and bridge structures.
 
 Digitization produced three primary feature layers:
 
-- Road Network: Represented as line features, capturing major road alignments and lane separations where visible.  
-- Vegetation Cover: Represented as polygon features, delineating green areas with exclusions applied to built-up regions within vegetation zones.  
-- Water Bodies: Represented as polygon features, maintaining continuity across areas intersected by infrastructure such as bridges.  
+- Road Network: Represented as line features, capturing major road alignments and lane separations where visible.
+- Vegetation Cover: Represented as polygon features, delineating green areas with exclusions applied to built-up regions within vegetation zones.
+- Water Bodies: Represented as polygon features, maintaining continuity across areas intersected by infrastructure such as bridges.
 
-The final map integrates the georeferenced image with the extracted vector features, providing a clear visual representation of urban elements within the study area. The applied symbology enhances feature distinction and supports effective interpretation of spatial patterns.
+The final map integrates the georeferenced image with the extracted vector features, providing a clear and visually consistent representation of urban elements within the study area.
 
-Overall, the workflow demonstrates the successful application of georeferencing and manual digitization techniques for extracting meaningful spatial information from non-orthogonal aerial imagery.
-
-The transformed image was generated as a new georeferenced raster aligned with the reference basemap. The output preserved the spatial relationships defined by the selected GCPs while incorporating the applied transformation and resampling settings.
-
-The resulting raster was successfully integrated into the main QGIS canvas, where it was used as the base layer for subsequent feature extraction and digitization.
+Overall, the workflow demonstrates the effective use of georeferencing and manual digitization techniques, with transformation refinement improving alignment quality for non-orthogonal aerial imagery.
 
 ## 🗺️ Map Output
 
-<img src="images/final_output.png" width="85%">
+<img src="images/tps_transform.png" width="85%">
 
 *Final map showing extracted urban features from the georeferenced aerial imagery.*
 
 ## 🎯 Conclusion
 
-This project demonstrates the effective application of georeferencing and manual digitization techniques for extracting urban features from aerial imagery. Despite the challenges associated with using an oblique (angled) image, a reasonable level of spatial alignment was achieved through careful Ground Control Point (GCP) selection and appropriate transformation methods.
+This project demonstrates the effective application of georeferencing and manual digitization techniques for extracting urban features from aerial imagery. Despite the challenges associated with using a slightly oblique (angled) image, a reasonable level of spatial alignment was achieved through careful Ground Control Point (GCP) selection and iterative refinement of transformation methods.
 
-The workflow highlights the importance of selecting suitable transformation and resampling techniques, as well as the role of visual interpretation in feature extraction. While minor distortions and uncertainties remain, the final output provides a meaningful representation of the study area and its key spatial features.
+The workflow highlights the importance of selecting appropriate transformation models. The transition to a Thin Plate Spline (TPS) transformation improved local alignment with the reference basemap, particularly in complex areas such as road intersections and bridge structures.
+
+While minor distortions and uncertainties remain, especially due to the non-orthogonal nature of the source imagery, the final output provides a meaningful and visually consistent representation of the study area and its key spatial features.
 
 Overall, this project reinforces the practical value of GIS tools such as QGIS in handling real-world spatial data challenges and producing interpretable cartographic outputs from non-ideal datasets.
 
