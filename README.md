@@ -34,8 +34,6 @@ An oblique (angled) aerial image of the area was used as the primary dataset for
 
 An oblique (angled) aerial image of the Falomo Bridge area in Lagos was used as the primary dataset for this project. The image was sourced from iStockphoto and selected based on its spatial coverage, visual clarity, and representation of key urban features including roads, vegetation, and water bodies.
 
-Due to its oblique perspective, the image required geometric correction through georeferencing to align it with real-world coordinates before further analysis could be performed.
-
 ### 📐 Georeferencing
 
 #### 1. Georeferencer Setup
@@ -145,29 +143,52 @@ Following digitization, each feature layer was styled using the QGIS Layer Styli
 
 The final map layout was created using the QGIS Print Layout tool, where essential map elements such as title, legend, and annotations were added to produce a clear and well-structured cartographic output.
 
+## 🔄 Update: Transformation Refinement (Thin Plate Spline)
+
+After completing the initial georeferencing using a Polynomial 2 transformation, further review and experimentation were conducted to improve spatial alignment.
+
+Based on QGIS documentation on georeferencing transformation types, different methods were tested, including Projective and Thin Plate Spline (TPS). While Polynomial transformations introduced noticeable stretching and distortion—particularly towards the edges of the image, TPS provided improved local alignment across the study area.
+
+Given the near-vertical (slightly oblique) nature of the source imagery, TPS was selected as the preferred method due to its ability to better handle localized distortions and improve visual consistency with the basemap.
+
+It is important to note that while TPS improves alignment, it does so through localized warping, meaning that results prioritize visual fit over strict geometric uniformity.
+
+### 📍 Key Observation
+Improved alignment was especially noticeable around complex features such as the bridge, where additional Ground Control Points (GCPs) helped refine local accuracy.
+
+### 🗺️ Updated Output (TPS)
+
+<img src="images/tps_transform.png" width="85%">
+
+### 🔍 Comparison Summary
+
+| Method        | Observation |
+|--------------|------------|
+| Polynomial 2 | Introduced stretching and edge distortion |
+| TPS          | Improved local alignment and overall visual consistency |
+
+
 ## ⚠️ Limitations
 
 While the georeferencing and digitization process produced a usable representation of urban features, several limitations should be acknowledged.
 
-### 1. Oblique Image Distortion
+### 1. Oblique Image Perspective
+The source aerial image was captured at a slightly oblique (angled) perspective rather than a true vertical (orthographic) view. As a result, minor perspective effects and positional inconsistencies remain, particularly in areas farther from control points.
 
-The source aerial image was captured at an oblique (angled) perspective rather than a true vertical (orthographic) view. As a result, perspective distortion was introduced during georeferencing, leading to localized stretching and compression of features—particularly towards the upper portion of the image.
+### 2. Transformation Effects (TPS)
+Thin Plate Spline (TPS) transformation improves local alignment with the basemap but introduces non-uniform scaling across the image. This means that spatial relationships are adjusted locally rather than preserved uniformly.
 
-### 2. Residual Georeferencing Error
+### 3. Relief Displacement
+Elevated structures such as bridges may exhibit slight misalignment due to relief displacement inherent in oblique imagery, where object height affects apparent position.
 
-Although Ground Control Points (GCPs) were carefully selected and refined, the final Root Mean Square (RMS) error of approximately 2.48 indicates the presence of minor positional inaccuracies. This level of error is acceptable for visual interpretation but may not be suitable for high-precision spatial analysis.
+### 4. Interpolation Artifacts
+Some minor visual artifacts (e.g., pixel inconsistencies within vegetated areas) remain as a result of the transformation process and the original image quality.
 
-### 3. Interpolation Artifacts
+### 5. Visual Interpretation Uncertainty
+Digitization was based on manual visual interpretation of the imagery. In areas with reduced clarity or distortion, feature boundaries—especially vegetation—may not perfectly represent true ground conditions.
 
-Despite the use of cubic B-spline resampling, some minor interpolation artifacts (e.g., pixel inconsistencies within vegetated areas) remained. These artifacts are a result of the transformation process and the original image quality.
-
-### 4. Visual Interpretation Uncertainty
-
-Digitization was based on manual visual interpretation of the imagery. In areas affected by distortion or reduced clarity, particularly towards the upper extent of the image, feature boundaries—especially vegetation—may not accurately represent true ground conditions.
-
-### 5. Limited Feature Scope
-
-Only selected urban features (roads, vegetation, and water bodies) were extracted. Other relevant features such as buildings and infrastructure details were not included, which limits the completeness of the spatial representation.
+### 6. Limited Feature Scope
+Only selected urban features (roads, vegetation, and water bodies) were extracted. Other relevant features such as buildings and infrastructure details were not included, limiting the completeness of the spatial representation.
 
 ## 📊 Results
 
