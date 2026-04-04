@@ -181,7 +181,7 @@ Elevated structures such as bridges may exhibit slight misalignment due to relie
 Some minor visual artifacts (e.g., pixel inconsistencies within vegetated areas) remain as a result of the transformation process and the original image quality.
 
 ### 5. Visual Interpretation Uncertainty
-Digitization was based on manual visual interpretation of the imagery. In areas with reduced clarity or distortion, feature boundaries—especially vegetation—may not perfectly represent true ground conditions.
+Digitization was based on manual visual interpretation of the imagery. In areas with reduced clarity or distortion, feature boundaries, especially vegetation, may not perfectly represent true ground conditions.
 
 ### 6. Limited Feature Scope
 Only selected urban features (roads, vegetation, and water bodies) were extracted. Other relevant features such as buildings and infrastructure details were not included, limiting the completeness of the spatial representation.
